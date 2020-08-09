@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main()
+{
+    char Alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //int i,j,k;
+    char encription[26];
+    char decription[26];
+    char messege[26];
+    char key[50];
+
+    printf("msg: ");
+    scanf("%s", &messege);
+    printf("key: ");
+    scanf("%s", &key);
+
+  
+    strcat(key, Alpha);
+
+  
+    for(int  i=0; i<strlen(key); i++)
+    {
+        for(int j=i+1; j<strlen(key); j++)
+        {
+            if(key[j] == key[i])
+                for(int k = j; k<strlen(key); k++)
+                    key[k] = key[k+1];
+        }
+    }
+
+
+    int cash;
+    for(int i=0; i<strlen(messege); i++)
+        for(int j=0; j<strlen(Alpha); j++)
+            if(messege[i] == Alpha[j])
+		{      
+ 		       cash = j % strlen(Alpha);
+		       encription[i] = key[cash]; 	
+		}
+                      
+
+    printf("\nencription: %s", encription);
+
+
+    for(int i=0; i<strlen(encription); i++)
+    {
+        for(int j=0; j<strlen(key); j++)
+        {
+            if(encription[i] == key[j])
+                {
+                	cash = j % strlen(key);
+					decription[i] = Alpha[cash];
+				}
+
+        }
+    }
+    printf("\ndecription: %s", decription);
+    printf("\n");
+
+
+}

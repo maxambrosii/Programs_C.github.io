@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1569092483 source:d:\Миша\Учёба\Криптография\cezar\main.c
+	<stdio.h>
+	<stdlib.h>
+	"func.h"
+
+1569093069 d:\Миша\Учёба\Криптография\cezar\func.h
+
